@@ -1,0 +1,285 @@
+<!--This is Part for HTML Structure-->
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Internal Css</title>
+        <link href="https://fonts.googleapis.com/css2?family=Agbalumo&family=Calistoga&family=Zen+Old+Mincho&display=swap" rel="stylesheet" />
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.4.0/jspdf.umd.min.js"></script>
+        
+        <!--This is Part for Internal CSS-->
+        <style>
+            body{
+                margin: 0;
+                flex-direction: column;
+                align-items: center;
+                height: 1vh;
+            }
+
+            .L1{
+                padding-left: 20pt;
+                text-decoration: none;
+                color: white;
+            }
+
+            .L1:hover{
+                color:darkred
+            }
+
+            .L1:active{
+                color: white;
+            }
+
+            .L2{
+                position: absolute;
+                right: 30pt;
+                margin: -18pt;
+                margin-left: 15px;
+                padding-right: 20pt;
+            }
+
+            .titles {
+                display: flex;
+                position: relative;
+                align-items: center;
+                padding: 10px;
+                height: 70pt;
+                font-family: "Agbalumo", system-ui;
+                background-image: url("https://static.vecteezy.com/system/resources/previews/013/989/919/non_2x/illustration-of-red-brick-background-vector.jpg");
+                background-repeat: no-repeat;
+                background-size: cover;
+                color: white;
+                font-size: 20pt;
+                
+            }
+            
+            .footer{
+                margin-left: auto;
+                margin-right: auto;
+                width: fit-content;
+            }
+
+            #storeContainer {
+                display: flex;
+                gap: 50px;
+            }
+
+            #items, #cart {
+                padding: 50px;
+                border: 1px solid #ccc;
+            }
+
+            .item-grid {
+                display: grid;
+                grid-template-columns: repeat(3, 1fr);
+                gap: 20px;
+            }
+
+            .item {
+                text-align: center;
+                cursor: pointer;
+            }
+
+            .item img {
+                width: 100px;
+                height: 100px;
+                object-fit: cover;
+            }
+
+            .container{
+                margin-left: auto;
+                margin-right: auto;
+                width: fit-content;
+                font-family: "Agbalumo", system-ui;
+                margin-top: 100pt;
+                margin-bottom: 130pt;
+            }
+            
+            .babes{
+                margin-bottom: 50pt;
+            }
+
+            Button {
+                font-family: "Agbalumo", system-ui;
+                color: rgb(255, 255, 255); 
+                font-size: 13pt;
+                line-height: 19px; 
+                padding: 3px; 
+                border-radius: 7px; 
+                background-image: linear-gradient(to right, rgb(153, 0, 26) 0%, rgb(255, 0, 0) 50%, rgb(153, 0, 26) 100%); 
+                box-shadow: rgb(196, 25, 25) 5px 5px 15px 5px; 
+                border: 2px solid rgb(82, 0, 0); 
+                display: inline-block;
+            }
+
+            Button:hover {
+                background: #ff0000; 
+                color: rgb(0, 0, 0);
+            }
+
+            Button:active {
+                background: #860000; 
+                color: rgb(255, 255, 255);
+            }
+
+            input{
+                font-family: "Arial Black", Gadget, sans-serif;
+                font-size: 17px;
+                letter-spacing: 0.6px;
+                word-spacing: -1px;
+                color: #000000;
+                font-weight: 400;
+                text-decoration: none;
+                font-style: normal;
+                font-variant: normal;
+                text-transform: none;
+                border: solid 1pt black;
+                border-radius: 10pt;
+            }
+
+            
+    </style>
+    </head>
+
+    <body>
+
+        <header class="banner">
+            <div class="titles">
+                <a href="#" class="L1">Internal CSS</a>
+                <label class="L2">Created by: Stephen David Condino</label>
+            </div>
+        </header>
+
+        <div class="container">
+            <center><h1 class="babes">Baby's Essentials</h1></center>
+                <div id="storeContainer">
+                    <div id="items">
+                        <h2>Baby Products</h2>
+                        <div class="item-grid">
+                            <div class="item" onclick="addItem('Baby Powder', 149)">
+                                <img src="https://img.freepik.com/premium-vector/body-scrub-icon_933463-9672.jpg?w=900" alt="Powder">
+                                <p>Baby Powder - &#8369;150</p>
+                            </div>
+                            <div class="item" onclick="addItem('Baby Cologne', 249)">
+                                <img src="https://img.freepik.com/premium-vector/baby-perfume-cartoon-character-with-pacifier-cute-style-design-t-shirt-sticker-logo-element_152558-16084.jpg?w=900" alt="Cologne">
+                                <p>Baby Cologne - &#8369;250</p>
+                            </div>
+                            <div class="item" onclick="addItem('Milk 0-6y', 699)">
+                                <img src="https://img.freepik.com/free-vector/hand-painted-watercolor-world-milk-day-illustration_52683-61169.jpg?ga=GA1.1.687259079.1731423909&semt=ais_hybrid" alt="Milk">
+                                <p>Milk 0-6y - &#8369;700</p>
+                            </div>
+
+                            <div class="item" onclick="addItem('Baby Oil', 125)">
+                                <img src="https://img.freepik.com/premium-vector/free-organic-baby-product-with-purchase_1253148-33149.jpg?ga=GA1.1.687259079.1731423909&semt=ais_hybrid" alt="Oil">
+                                <p>Baby Oil - &#8369;125</p>
+                            </div>
+                            <div class="item" onclick="addItem('Diaper 0-3y', 200)">
+                                <img src="https://img.freepik.com/free-psd/3d-medical-elements-with-baby-diaper_23-2151202541.jpg?ga=GA1.1.1215644811.1731510341&semt=ais_hybrid" alt="Diaper">
+                                <p>Diaper 0-3y - &#8369;200</p>
+                            </div>
+                            <div class="item" onclick="addItem('Milk Bottle 12oz', 99.75)">
+                                <img src="https://img.freepik.com/free-vector/cute-feeding-bottle-concept-illustration_114360-23719.jpg?ga=GA1.1.1215644811.1731510341&semt=ais_hybrid" alt="Bottle">
+                                <p>Milk Bottle 12oz- &#8369;99.75</p>
+                            </div>
+
+                            <div class="item" onclick="addItem('Pacifier', 50)">
+                                <img src="https://img.freepik.com/premium-vector/baby-pacifier-vector-illustration-isolated-icon_679085-760.jpg?ga=GA1.1.1215644811.1731510341&semt=ais_hybrid" alt="Pacifier">
+                                <p>Pacifier - &#8369;50</p>
+                            </div>
+                            <div class="item" onclick="addItem('Tissue 12pcs', 120)">
+                                <img src="https://img.freepik.com/premium-vector/baby-tissue-roll-cartoon-character-with-pacifier_152558-82373.jpg?ga=GA1.1.1215644811.1731510341&semt=ais_hybrid" alt="Tissue">
+                                <p>Tissue 12pcs - &#8369;120</p>
+                            </div>
+                            <div class="item" onclick="addItem('Baru-Baruan Set', 1200)">
+                                <img src="https://img.freepik.com/premium-vector/newborn-set-gift-baby-vector-illustration-cartoon_980033-138.jpg?ga=GA1.1.1215644811.1731510341&semt=ais_hybrid" alt="Baru-Baruan">
+                                <p>Baru-Baruan Set - &#8369;1200</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div id="cart">
+                        <h2>Customer Cart</h2>
+                        <ul id="cartItems"></ul>
+                        <p>Total: $<span id="totalPrice">0</span></p>
+
+                        <h2>Payment</h2>
+                        <label for="amountPaid">Amount Paid: </label><br>
+                        <input type="number" min=0 id="amountPaid" placeholder="Enter amount">
+                        <button onclick="checkPayment()">Check Payment</button>
+                        <p id="paymentStatus"></p>
+                        <button onclick="generateReceipt()">Download Receipt</button>
+                    </div>
+                </div>
+        </div>
+
+        <footer>
+            <div class="titles">
+                <label class="footer">
+                    Copyright © 2024 Capstone Philippines. All Rights Reserved | Photos are for reference only
+                </label>
+            </div>
+        </footer>
+
+        <script>
+            let cart = [];
+            let totalPrice = 0;
+     
+             function addItem(name, price) {
+                 cart.push({ name, price });
+                 totalPrice += price;
+                 updateCart();
+             }
+     
+             function updateCart() {
+                 const cartItems = document.getElementById('cartItems');
+                 cartItems.innerHTML = '';
+                 cart.forEach(item => {
+                     const li = document.createElement('li');
+                     li.textContent = `${item.name} - $${item.price}`;
+                     cartItems.appendChild(li);
+                 });
+                 document.getElementById('totalPrice').textContent = totalPrice;
+             }
+     
+             function checkPayment() {
+                 const amountPaid = parseFloat(document.getElementById('amountPaid').value);
+                 const paymentStatus = document.getElementById('paymentStatus');
+     
+                 if (isNaN(amountPaid) || amountPaid < totalPrice) {
+                     paymentStatus.textContent = 'Insufficient amount.';
+                     paymentStatus.style.color = 'red';
+                 } else if (amountPaid === totalPrice) {
+                     paymentStatus.textContent = 'Exact amount.';
+                     paymentStatus.style.color = 'green';
+                 } else {
+                     paymentStatus.textContent = `Change: $${(amountPaid - totalPrice).toFixed(2)}`;
+                     paymentStatus.style.color = 'green';
+                 }
+             }
+     
+             
+            function generateReceipt() {
+                const paymentStatus = document.getElementById('paymentStatus');
+                const amountPaid = parseFloat(document.getElementById('amountPaid').value);
+
+                if (paymentStatus.style.color == 'green') {
+                    const { jsPDF } = window.jspdf;
+                    const doc = new jsPDF();
+
+                    doc.text('Receipt from MD Store', 10, 10);
+
+                    cart.forEach((item, index) => {
+                        doc.text(`${item.name} - P${item.price}`, 10, 20 + index * 10);
+                    });
+
+                    const totalYPosition = 20 + cart.length * 10;
+                    doc.text(`Total: P${totalPrice}.00`, 10, totalYPosition);
+
+                    doc.save('Receipt.pdf');
+                } else {
+                    alert("Check Amount First");
+                }
+            }
+         </script>
+
+    </body>
+</html>
