@@ -275,10 +275,12 @@
         <script>
             let cart = [];
             let totalPrice = 0;
+            let finalPrice = 0;
      
              function addItem(name, price) {
                  cart.push({ name, price });
                  totalPrice += price;
+                 finalPrice = totalPrice;
                  updateCart();
              }
      
@@ -304,17 +306,18 @@
                      paymentStatus.textContent = 'Exact amount.';
                      paymentStatus.style.color = 'green';
                  } else {
-                     paymentStatus.textContent = `Change: $${(amountPaid - totalPrice).toFixed(2)}`;
+                     paymentStatus.textContent = `Change: P${(amountPaid - totalPrice).toFixed(2)}`;
                      paymentStatus.style.color = 'green';
                  }
              }
      
              
-            function generateReceipt() {
+             function generateReceipt() {
                 const paymentStatus = document.getElementById('paymentStatus');
                 const amountPaid = parseFloat(document.getElementById('amountPaid').value);
 
-                if (paymentStatus.style.color == 'green') {
+                if (amountPaid > finalPrice) {
+                    checkPayment();
                     const { jsPDF } = window.jspdf;
                     const doc = new jsPDF();
 
@@ -326,6 +329,9 @@
 
                     const totalYPosition = 20 + cart.length * 10;
                     doc.text(`Total: P${totalPrice}.00`, 10, totalYPosition);
+
+                    const changeYPosition = totalYPosition + 10;
+                    doc.text(`Change: P${(amountPaid - totalPrice).toFixed(2)}`, 10, changeYPosition);
 
                     doc.save('Receipt.pdf');
                 } else {
