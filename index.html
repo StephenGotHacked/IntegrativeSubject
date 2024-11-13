@@ -276,7 +276,8 @@
 
                     doc.save('Receipt.pdf');
                 } else {
-                    alert("Check Amount First");
+                    paymentStatus.textContent = 'You can`t download the receipt with insufficient payment.';
+                    paymentStatus.style.color = 'red';
                 }
             }
          </script>
