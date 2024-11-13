@@ -136,7 +136,51 @@
                 border-radius: 10pt;
             }
 
-            
+            @media (max-width: 1500px) {
+                .payment::after {
+                    content: attr(data-text); 
+                }
+                .receipt::after {
+                    content: attr(data-text);
+                }
+                
+                .payment, .receipt {
+                    color: transparent;
+                    position: relative;
+                }
+
+                .payment:hover, .receipt:hover {
+                    color: transparent;
+                    position: relative;
+                }
+                
+                .payment::after, .receipt::after {
+                    color: white;
+                    position: absolute;
+                    top: 0;
+                    left: 0;
+                    padding-left: 5pt;
+                }
+
+                Button{
+                    width: 65pt;
+                    height: 20pt;
+                    display: flex;
+                }
+
+                .payment{
+                    margin-top: 10pt;
+                    margin-bottom: 10pt;
+                }
+
+                .container{
+                    padding-left: 50pt;
+                    padding-right: 50pt;
+                    margin-left: auto;
+                    margin-right: auto;
+                    width: fit-content;
+                }
+                }
     </style>
     </head>
 
@@ -204,9 +248,10 @@
                         <h2>Payment</h2>
                         <label for="amountPaid">Amount Paid: </label><br>
                         <input type="number" min=0 id="amountPaid" placeholder="Enter amount">
-                        <button onclick="checkPayment()">Check Payment</button>
+                        <button class="payment" onclick="checkPayment()" data-text="Payment" >Check Payment</button>
+                        <button class="receipt" onclick="generateReceipt()" data-text="Receipt" >Download Receipt</button>
                         <p id="paymentStatus"></p>
-                        <button onclick="generateReceipt()">Download Receipt</button>
+                        
                     </div>
                 </div>
         </div>
