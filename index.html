@@ -316,7 +316,7 @@
                 const paymentStatus = document.getElementById('paymentStatus');
                 const amountPaid = parseFloat(document.getElementById('amountPaid').value);
 
-                if (amountPaid > finalPrice) {
+                if (amountPaid >= finalPrice) {
                     checkPayment();
                     const { jsPDF } = window.jspdf;
                     const doc = new jsPDF();
